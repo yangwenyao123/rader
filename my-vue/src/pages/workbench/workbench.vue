@@ -22,7 +22,7 @@
             <span class="iconbg">
               <i class="iconfont iconrenwu"></i>
             </span>
-            <div class="title">
+            <div class="title" @click="renwu">
               <h2>任务</h2>
               <p>高效管理自己的销售计划</p>
             </div>
@@ -35,9 +35,9 @@
             <span class="iconbg">
               <i class="iconfont iconshangji1"></i>
             </span>
-            <div class="title">
-              <h2>任务</h2>
-              <p>高效管理自己的销售计划</p>
+            <div class="title" @click="Business">
+              <h2>商机</h2>
+              <p>把握机会 成交就在眼前</p>
             </div>
           </div>
           <div class="num">0</div>
@@ -49,25 +49,25 @@
           <h2>我的应用</h2>
         </div>
         <ul class="appIems">
-          <li>
+          <router-link to="/mall" tag="li">
             <i class="iconfont iconshangcheng2"></i>商城
-          </li>
-          <li>
+          </router-link>
+          <router-link to="/dynamic" tag="li">
             <i class="iconfont icondongtaicopy"></i>动态
-          </li>
+          </router-link>
           <li>
             <i class="iconfont icondingdan"></i>订单核销
           </li>
-          <li>
+          <router-link to="/report" tag="li"> 
             <i class="iconfont iconbaobiao"></i>AI报表
-          </li>
+          </router-link>
 
-          <li>
+          <router-link to="/daily" tag="li"> 
             <i class="iconfont iconribao"></i>每日日报
-          </li>
-          <li>
+          </router-link>
+          <router-link to="/receive" tag="li"> 
             <i class="iconfont iconhongbao"></i>红包领取
-          </li>
+          </router-link>
         </ul>
       </div>
     <Foter :active="active"></Foter> 
@@ -82,6 +82,16 @@ export default {
     return {
       active:null
     };
+  },
+  methods:{
+    renwu () {
+      this.$router.push('/task')
+    },
+    Business () {
+      this.$router.push('/business')
+    }
+
+    
   },
   components:{
     Foter
@@ -156,13 +166,16 @@ export default {
   line-height: 0.5rem;
   color: #fff;
   box-shadow: inset 0 10px 10px #f3821f;
+  box-shadow:0 0 8px #f3821f;
 }
 .task .title h2 {
   padding-bottom: 0.1rem;
+  font-size: 12px;
 }
 .task .title p {
   padding-top: 0.1rem;
-  font-size: 12px;
+  font-size: 10px;
+  color:rgb(130, 130, 130)
 }
 h2 {
   font-weight: 500 !important;

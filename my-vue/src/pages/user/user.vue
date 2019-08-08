@@ -14,10 +14,10 @@
             </div>
           </div>
           <div class="editor">
-            <div class="editor_text">
+            <router-link to="/editorData" tag="div" class="editor_text">
               资料编辑
               <i class="iconfont icyoujiantou"></i>
-            </div>
+            </router-link>
           </div>
         </div>
 
@@ -41,7 +41,7 @@
 
       <div class="list">
         <ul class="item">
-          <li>
+          <router-link to="/guan" tag="li">
             <div class="li_left">
               <div class="mingp">
                 <i class="iconfont iconmingpian"></i>
@@ -50,7 +50,7 @@
             <div class="li_right">
                 <i class="iconfont icyoujiantou"></i>
             </div>
-          </li>
+          </router-link>
          <li>
             <div class="li_left">
               <div class="mingp">
@@ -133,7 +133,7 @@ export default {
 }
 .li_left {
   display: flex;
-  font-size: 10px;
+  font-size: 12px;
   align-items: center;
 }
 .mingp {

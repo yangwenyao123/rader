@@ -10,9 +10,9 @@
 
 
 
-    <div v-show="cur==0"><Ntime></Ntime></div>
-    <div v-show="cur==1"><beHavior></beHavior></div>
-    <div v-show="cur==2"><people></people></div>
+    <Ntime v-show="cur==0"></Ntime>
+    <beHavior v-show="cur==1"></beHavior>
+    <people v-show="cur==2"></people>
 
     
     <Foter :active="active"></Foter>
@@ -38,11 +38,12 @@ export default {
   },
   mounted () {
      this.active = this.$route.path
-    
+      
   }
 };
 </script>
 <style scoped>
+
 .tab {
   padding: 0.3rem 0 .2rem 0;
 }

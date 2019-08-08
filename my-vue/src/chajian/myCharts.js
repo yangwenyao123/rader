@@ -37,7 +37,7 @@ const install = function (Vue) {
                   radius: '55%',
                   center: ['50%', '60%'],
                   data: [
-                    { value: 335, name: '男' },
+                    { value: 200, name: '男' },
                     { value: 310, name: '女' }
 
                   ],
@@ -732,7 +732,7 @@ const install = function (Vue) {
                 orient: 'horizontal',
                 left: 'left',
                 x: 'left',
-                data: ['对我感兴趣', '对产品感兴趣','对']
+                data: ['对我感兴趣', '对产品感兴趣','对公司感兴趣']
               },
 
               label: {
@@ -745,13 +745,13 @@ const install = function (Vue) {
                 {
                   name: '访问来源',
                   type: 'pie',
-                  radius: '40%',
+                  radius: '70%',
                   center: ['50%', '60%'],
-                  layoutSize: "80%",
+                  
                   data: [
                     { value: 335, name: '对我感兴趣' },
                     { value: 310, name: '对产品感兴趣' },
-                    { value: 200, name: '对' }
+                    { value: 200, name: '对公司感兴趣' }
 
                   ],
                   itemStyle: {

@@ -7,7 +7,7 @@
 
     <div class="list">
         <ul class="items">
-            <li>
+            <li @click="jump">
                 <div class="left">
                     <img src="@/assets/images/66.jpg" alt="">
                     <div class="minde">
@@ -16,7 +16,7 @@
                 </div>
                 <div class="iconfont icyoujiantou"></div>
             </li>
-            <li>
+            <li  @click="jump">
                 <div class="left">
                     <img src="@/assets/images/66.jpg" alt="">
                     <div class="minde">
@@ -33,7 +33,16 @@
 </template>
 <script>
 export default {
-    
+    data () {
+        return {
+
+        }
+    },
+    methods:{
+        jump () {
+            this.$router.push('/chakan')
+        }
+    }
 }
 </script>
 

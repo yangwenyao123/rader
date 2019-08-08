@@ -12,18 +12,18 @@
               <p>未关联商机阶段</p>
             </div>
           </div>
-          <div class="biaoqian">添加标签</div>
+          <router-link class="biaoqian" to="/label" tag="div">添加标签</router-link>
           <div class="editor">
-            <div class="editor_text">
+            <router-link to="/editor" tag="div" class="editor_text">
               资料编辑
               <i class="iconfont icyoujiantou"></i>
-            </div>
+            </router-link>
           </div>
         </div>
 
         <div class="card-bottom">
-          <div class="card-bottom_left border-right">
-            <h2>未设置</h2>
+          <div class="card-bottom_left border-right"  @click ="setDate" >
+            <h2>{{date?date:'未设置'}}</h2>
             <p>预计成交日期</p>
           </div>
           <div class="card-bottom_left">
@@ -38,10 +38,10 @@
     </div>
 
     <ul class="nav-tab">
-        <li @click="cur=0" :class="{active:cur==0}">互动</li>
-        <li @click="cur=1" :class="{active:cur==1}">资料</li>
-        <li @click="cur=2" :class="{active:cur==2}">相关</li>
-        <li @click="cur=3" :class="{active:cur==3}">AI分析</li>
+      <li @click="cur=0" :class="{active:cur==0}">互动</li>
+      <li @click="cur=1" :class="{active:cur==1}">资料</li>
+      <li @click="cur=2" :class="{active:cur==2}">相关</li>
+      <li @click="cur=3" :class="{active:cur==3}">AI分析</li>
     </ul>
 
     <Hdong v-show="cur==0"></Hdong>
@@ -50,102 +50,117 @@
     <Analysis v-show="cur==3"></Analysis>
 
     <ul class="footer">
-        <router-link to="/session" tag="li">
-            <div class="icBg"><i class="iconfont iconrenwu"></i></div>
-           发消息
-        </router-link>
-         <router-link to="/cjsj" tag="li">
-            <div class="icBg"><i class="iconfont iconrenwu"></i></div>
-           创建商机
-        </router-link>
-          <router-link to="/create" tag="li">
-            <div class="icBg"><i class="iconfont iconrenwu"></i></div>
-          创建任务
-        </router-link>
-         <router-link to="/follow" tag="li">
-            <div class="icBg"><i class="iconfont iconrenwu"></i></div>
-           添加跟进
-        </router-link>
+      <router-link to="/session" tag="li">
+        <div class="icBg">
+          <i class="iconfont iconrenwu"></i>
+        </div>发消息
+      </router-link>
+      <router-link to="/cjsj" tag="li">
+        <div class="icBg">
+          <i class="iconfont iconrenwu"></i>
+        </div>创建商机
+      </router-link>
+      <router-link to="/create" tag="li">
+        <div class="icBg">
+          <i class="iconfont iconrenwu"></i>
+        </div>创建任务
+      </router-link>
+      <router-link to="/follow" tag="li">
+        <div class="icBg">
+          <i class="iconfont iconrenwu"></i>
+        </div>添加跟进
+      </router-link>
     </ul>
   </div>
 </template>
 <script>
-import Hdong from './hudong'
-import Zliao from './ziliao'
-import Related from './related'
-import Analysis from './Analysis'
+import Hdong from "./hudong";
+import Zliao from "./ziliao";
+import Related from "./related";
+import Analysis from "./Analysis";
 export default {
-    data () {
-        return {
-            cur:0
+  data() {
+    return {
+      cur: 0,
+      demo2: "",
+      date:''
+    };
+  },
+  methods: {
+      setDate(){
+	       this.$picker.show({
+	         type:'datePicker',
+	         onOk: (date) =>{
+	           this.date = date
+	         }
+	       });
         }
-    },
-    components:{
-        Hdong,
-        Zliao,
-        Related,
-        Analysis
-    }
-}
+  },
+  components: {
+    Hdong,
+    Zliao,
+    Related,
+    Analysis
+  }
+};
 </script>
 
 <style scoped>
 .icBg {
-   width: .4rem;
-   height: .4rem;
-   border-radius: 50%;
-   background: #24c3ff;
-   text-align: center;
-   line-height: .4rem;
-   margin-bottom: .07rem;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background: #24c3ff;
+  text-align: center;
+  line-height: 0.4rem;
+  margin-bottom: 0.07rem;
 }
 .footer .iconfont {
-    font-size: 14px;
-    color: #fff;
+  font-size: 14px;
+  color: #fff;
 }
 .footer {
-    display: flex;
-    justify-content: space-between;
-    padding: .1rem .2rem;
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-top: 1px solid #e2e5e4;
-    font-size: 10px;
-    background: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.1rem 0.2rem;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-top: 1px solid #e2e5e4;
+  font-size: 10px;
+  background: #fff;
 }
 .footer li {
-    display: flex;
-    flex-direction: column;
-    color: #7f7e7e;
-    width: 20%;
-   align-items: center;
-   text-align: center
+  display: flex;
+  flex-direction: column;
+  color: #7f7e7e;
+  width: 20%;
+  align-items: center;
+  text-align: center;
 }
 
 .content {
-  padding: .2rem .2rem 2rem .2rem;
+  padding: 0.2rem 0.2rem 2rem 0.2rem;
   background-color: #fdffff;
 }
 .nav-tab {
-  height: .8rem;
-  border-radius: .2rem;
-  margin-top:.2rem;
+  height: 0.8rem;
+  border-radius: 0.2rem;
+  margin-top: 0.2rem;
   display: flex;
   justify-content: space-around;
   box-shadow: 0 0 5px #ccc;
 }
 .nav-tab li {
-    padding: .25rem 0;
-    width: 1rem;
-    text-align: center;   
+  padding: 0.25rem 0;
+  width: 1rem;
+  text-align: center;
 }
-.nav-tab  .active {
-    border-bottom: 3px solid #2ac3ff;
-    color: #3ebfdc;
+.nav-tab .active {
+  border-bottom: 3px solid #2ac3ff;
+  color: #3ebfdc;
 }
-
 
 .biaoqian {
   position: absolute;
@@ -252,7 +267,6 @@ p {
 }
 
 .card {
-  
   font-size: 12px;
   color: #fff;
 }

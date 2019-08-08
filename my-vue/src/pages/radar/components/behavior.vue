@@ -6,7 +6,7 @@
         <div class="iconfont tianchongicon"></div>
       </div>
        <ul class="kapian">
-          <li v-for="(item,index) in 6" :key="index">
+          <li v-for="(item,index) in 6" :key="index" @click="statistical">
             <div class="card">
               名片浏览
               <span class="iconbg">
@@ -20,7 +20,7 @@
 
     <div class="list">
         <ul class="item">
-            <li>
+            <li @click="statistical">
                 <div class="left">
                     <div class="iconGb">
                         <div class="iconfont iconjia"></div>
@@ -30,7 +30,7 @@
                 <div class="right"> <div class="num">0</div>&nbsp;次</div>
             </li>
 
-            <li>
+            <li @click="statistical">
                 <div class="left">
                     <div class="iconGb">
                         <div class="iconfont iconjia"></div>
@@ -40,7 +40,7 @@
                 <div class="right"> <div class="num">0</div>&nbsp;次</div>
             </li>
 
-             <li>
+             <li @click="statistical">
                 <div class="left">
                     <div class="iconGb">
                         <div class="iconfont iconjia"></div>
@@ -109,7 +109,18 @@
 </template>
 
 <script>
-export default {};
+export default {
+    data () {
+        return {
+
+        }
+    },
+    methods:{
+        statistical () {
+            this.$router.push('/statistical')
+        }
+    }
+};
 </script>
 <style scoped>
 
@@ -138,7 +149,7 @@ export default {};
     margin-right: .2rem;
 }
 .item {
-    padding: 0 .1rem;
+    padding: 0 .15rem;
     background-color: #fff;
     margin-bottom: .2rem;
     

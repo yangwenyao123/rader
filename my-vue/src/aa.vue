@@ -1,15 +1,31 @@
 <template>
-    <div>
-          <div class="block">
-    <span class="demonstration">默认</span>
-    <el-date-picker
-      v-model="value1"
-      type="date"
-      placeholder="选择日期">
-    </el-date-picker>
-  </div>
-
-    </div>
+  <div>{{res}}</div>
 </template>
+<script>
+import pusa from '../src/pages/pusa'
+export default {
+  data () {
+    return {
+      res:'158'
+    }
+  },
+  mounted() {
+       
+  },
+  created () {
 
+  },
+  updated () {
+   
+  },
+  activated () {
+    console.log(1569);
+    
+      pusa.$on('sasa',(data)=>{
+        this.res = data
+        })
+  }
+
+}
+</script>
 

@@ -1,6 +1,6 @@
 <template>
   <div class="wrap-box">
-    <div class="header">
+    <div class="header" @click="sousuo">
       <div class="input">
         <i class="iconfont iconsousuo"></i>
       </div>
@@ -13,18 +13,12 @@
         <li :class="{active:cur==1}" @click="cur=1">客户标签</li>
         <li :class="{active:cur==2}" @click="cur=2">客户报表</li>
       </ul>
-      <div class="time">
-        <div class="time_left">
-          最近活动时间
-          <i class="iconfont icondaosanjiao"></i>
-        </div>
-        <div class="time_right">共0名客户</div>
-      </div>
+    
     </div>
 
 
     <quanbu v-show="cur==0"></quanbu  >
-    
+    <customerLabel v-show="cur==1"></customerLabel>
     <report v-show="cur==2"></report>
 
     <Foter :active="active"></Foter>
@@ -34,6 +28,7 @@
 import Foter from "@/components/foter";
 import quanbu from "./components/quanbu";
 import report from "./components/report";
+import customerLabel from "./components/customerLabel"
 export default {
   data () {
     return {
@@ -41,10 +36,16 @@ export default {
       active:null
     }
   },
+  methods:{
+    sousuo () {
+      this.$router.push('/sousuo')
+    }
+  },
   components: {
     Foter,
     quanbu,
-    report
+    report,
+    customerLabel
   },
     mounted () {
      this.active = this.$route.path
@@ -54,6 +55,7 @@ export default {
 </script>
 <style scoped>
 .wrap-box {
+  
   position: absolute;
   left: 0;
   top: 0;
@@ -61,20 +63,7 @@ export default {
   right: 0;
 }
 
-.time {
-  height: 0.5rem;
 
-  line-height: 0.5rem;
-  padding: 0 0.2rem;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: space-between;
-  font-size: 10px;
-}
-.icondaosanjiao {
-  font-size: 10px;
-  color: #acaeb8;
-}
 .nav-tab {
   width: 100%;
   height: 0.8rem;
@@ -84,6 +73,7 @@ export default {
   justify-content: space-between;
   border-bottom: 0.02rem solid #ccc;
   color: #666666;
+  background-color: #fff;
 }
 .nav-tab li {
   width: 30%;

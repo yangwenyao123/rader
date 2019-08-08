@@ -2,7 +2,7 @@
   <div class="content">
     <ul class="list">
       <li><div class="left">商机名称</div> <div class="right">未填写</div></li>
-      <li><div class="left">金额</div> <div class="right"><input type="text" placeholder="请输入金额"></div></li>
+      <li><div class="left">金额</div> <div class="right"><input type="text" placeholder="请输入金额" dir='rtl'></div></li>
       <li><div class="left">关联客户</div> <div class="right"><span class="name">李心怡</span> <img src="../../../assets/images/0.jpg" alt="" class="touxiang"><div class="iconfont icyoujiantou"></div></div></li>
     </ul>
     <div class="beizhu">
@@ -44,7 +44,8 @@
     text-align: center;
     line-height: .6rem;
     color: #fff;
-    box-shadow: inset 42px 0 110px #2f8bfe;
+     background-color: #2e85fe;
+    box-shadow: inset 108px 0 52px #3bc1ff;
     border-radius: .3rem;
     position: absolute;
     bottom: .7rem;

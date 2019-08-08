@@ -8,7 +8,7 @@
     <div class="beizhu">
      <div class="title">备注</div>
       <textarea  style="resize: none;"></textarea>
-    </div>
+    </div>  
 
     <div class="baocun">保存</div>
 
